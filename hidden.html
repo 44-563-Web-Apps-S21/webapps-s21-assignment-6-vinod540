@@ -40,5 +40,36 @@ function processGuess(){
 }
 </script>
 
+<div class ="container">
+    <img id="myplant" src="images/Lavender.jpg" alt="Lavender" width="200" height="200" onclick='rotateImage()'>
+</div>
+
+<script>
+    var currentImage=0;
+    
+    function rotateImage(){
+        var img = document.getElementById('myplant');
+        img.style.transform = 'rotate(180deg)';
+    }
+         
+    switch(currentImage){
+            case 0: 
+                currentImage+=1;
+                document.getElementById("myPlant").src="images/Lavender.jpg"
+                break;
+            case 1:
+                currentImage+=1;
+                document.getElementById("myPlant").src="images/Ladypalm.jpg"
+                break;
+            case 2:
+                currentImage+=1;
+                document.getElementById("myPlant").src="images/Nasturtium.jpg"
+                break;
+            default:
+                currentImage=0
+                document.getElementById("myPlant").src="images/Lavender.jpg"
+                
+        }
+</script>
 </body>
 </html> 
