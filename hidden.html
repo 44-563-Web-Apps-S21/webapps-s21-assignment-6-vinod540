@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>Hidden file</head>
+<body>
+
+<h2>Hidden things by Vinod Kumar Reddy Nellore</h2>
+
+<form>
+    <label for="form1_secret">Enter the secret word</label>
+    <input type ="number" id="form1_secret" name="form1_secret" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_guess">Enter a guess</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+<p id="result">Results</p>
+
+<script>   
+ var correct=0;
+ var wrong=0;  
+
+function processGuess(){
+    console.log("Getting form values")
+    secret= document.getElementById("form1_secret").value
+    guess= document.getElementById("form1_guess").value
+    confirmed = confirm("Are these the values? "+secret+" and "+guess)
+    
+    out = document.getElementById("result")
+    if(secret==guess){
+        correct+= 1;
+        window.alert("Congratulations");
+        out.innerHTML = "Values were confirmed"
+    } else {
+        wrong+=1;
+        window.alert("Sorry");
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
