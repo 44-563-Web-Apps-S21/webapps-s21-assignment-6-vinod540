@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        Arithmetic page
+    </title>
+    </head>
+ 
+<body>
+
+<h2>Vinod Kumar Reddy Nellore  computes</h2>
+
+<form>
+    <label for="first_number">Enter a number</label>
+    <input type ="number" id="first_val" name="first_num" min=10 max=50 step=2 value=10> <br>
+
+    <label for="second_number">Enter a number</label>
+    <input type ="number" id="second_val" name="second_num" min=10 max=50 step=2 value=2> <br>
+
+    <input type="button" onclick="permutations()" value="Compute">
+</form>
+
+
+<div id="result">Result will be displayed here</div>
+
+<script> 
+
+function permutations(){
+    v1 = document.getElementById("first_val").value
+    v2 = document.getElementById("second_val").value
+    var product = 1;
+
+    let i=v1;
+
+    do{
+        product *=i;
+        i--
+    }while(i>=(v1-v2+1))
+
+
+    out = document.getElementById("result")
+    out.innerHTML = v1+" permute "+v2+" is "+product
+}
+
+</script>
+</body>
+</html> 
