@@ -6,69 +6,61 @@
 <h2>Hidden things by Vinod Kumar Reddy Nellore</h2>
 
 <form>
-    <label for="form1_secret">Enter the secret word</label>
-    <input type ="number" id="form1_secret" name="form1_secret" min=10 max=50 step=2 value=30> <br>
+    <label for="secret_word">Enter the secret word</label>
+    <input type ="password" id="secret_word" name="secret_word" value="Secret"> <br>
 
-    <label for="form1_guess">Enter a guess</label>
-    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+    <label for="guess_word">Enter a guess</label>
+    <input type ="text" id="guess_word" name="guess_word" autofocus> <br>
 
     <input type="button" onclick="processGuess()" value="Check the guess">
 </form>
 
-<p id="result">Results</p>
 
-<script>   
- var correct=0;
- var wrong=0;  
+<p id="count">This correct count will be displayed here</p>
 
-function processGuess(){
-    console.log("Getting form values")
-    secret= document.getElementById("form1_secret").value
-    guess= document.getElementById("form1_guess").value
-    confirmed = confirm("Are these the values? "+secret+" and "+guess)
-    
-    out = document.getElementById("result")
-    if(secret==guess){
-        correct+= 1;
-        window.alert("Congratulations");
-        out.innerHTML = "Values were confirmed"
-    } else {
-        wrong+=1;
-        window.alert("Sorry");
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
-
-<div class ="container">
-    <img id="myplant" src="images/Lavender.jpg" alt="Lavender" width="200" height="200" onclick="rotateImage()">
+<div class="container">
+    <img id="plantImage" src="Images/Lavender.jpg" alt="Lavender" width="200" height="200" onclick="rotateImage()">
 </div>
 
-<script>
+<script>   
+ var correct = 0;
+ var wrong = 0;  
+
+ function processGuess(){
+    secretword = document.getElementById("secret_word").value
+    guessword = document.getElementById("guess_word").value
+
+    if(secretword==guessword){
+        correct++
+        confirm("Congratulations")
+    }
+        else{
+        wrong++
+        confirm("Sorry")
+    }
+
+    out = document.getElementById("count")
+    out.innerHTML = "Correct Attempts: " + correct +"     Wrong Attempts: " + wrong
+
+}
+
     var currentImage=0;
     
     function rotateImage(){
-        var img = document.getElementById("myplant");
-        img.style.transform = 'rotate(180deg)';
-    }
-         
     switch(currentImage){
             case 0: 
-                currentImage+=1;
-                document.getElementById("myPlant").src = "images/Lavender.jpg";
+                currentImage++;
+                document.getElementById("plantImage").src = "Images/Lavender.jpg";
                 break;
             case 1:
-                currentImage+=1;
-                document.getElementById("myPlant").src = "images/Ladypalm.jpg";
+                currentImage++;
+                document.getElementById("plantImage").src = "Images/Ladypalm.jpg";
                 break;
             case 2:
-                currentImage+=1;
-                document.getElementById("myPlant").src = "images/Nasturtium.jpg";
+                currentImage=0;
+                document.getElementById("plantImage").src = "Images/Nasturtium.jpg";
                 break;
-            default:
-                currentImage=0
-                document.getElementById("myPlant").src = "images/Lavender.jpg"
-                
+    }          
         }
 </script>
 </body>
