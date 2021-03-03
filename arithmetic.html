@@ -11,37 +11,59 @@
 <h2>Vinod Kumar Reddy Nellore  computes</h2>
 
 <form>
-    <label for="first_number">Enter a number</label>
-    <input type ="number" id="first_val" name="first_num" min=10 max=50 step=2 value=10> <br>
+    <label for="first_number">Enter a number </label>
+    <input type ="number" id="first_val" name="first_num" value=10> <br>
 
-    <label for="second_number">Enter a number</label>
-    <input type ="number" id="second_val" name="second_num" min=10 max=50 step=2 value=2> <br>
+    <label for="second_number">Enter a number </label>
+    <input type ="number" id="second_val" name="second_num"value=2> <br>
 
     <input type="button" onclick="permutations()" value="Compute">
 </form>
+<div id="result">Results</div>
 
+<form >
+    <input type="radio" onclick="processRadio()"id="plus" name="plus" value="plus">
+    <label for="plus">+</label></br>
+  
+    <input type="radio" onclick="processRadio()"  id="minus" name="minus" value="minus">
+    <label for="minus">-</label></br>
+  
+    <input type="radio" onclick="processRadio()"  id="times" name="times" value="times">
+    <label for="times">*</label></br>
 
-<div id="result">Result will be displayed here</div>
+    <input type="radio" onclick="processRadio()"  id="divide" name="divide" value="divide">
+    <label for="divide">/</label></br>
+
+  </form>
+  <div id="result2">Results </div>
+
 
 <script> 
-
 function permutations(){
-    v1 = document.getElementById("first_val").value
-    v2 = document.getElementById("second_val").value
-    var product = 1;
+    let va11=document.getElementById("first_val").value
+    let val2=document.getElementById("second_val").value
+    let prod=1
+    for(i=va11; i>=(va11-val2+1);i--){
+        prod=prod*i
+    }
+    document.getElementById("result").innerHTML=va11+" permute "+val2+" should be "+prod
 
-    let i=v1;
-
-    do{
-        product *=i;
-        i--
-    }while(i>=(v1-v2+1))
-
-
-    out = document.getElementById("result")
-    out.innerHTML = v1+" permute "+v2+" is "+product
 }
 
+function processRadio(){
+    let val3=parseInt(document.getElementById("first_val").value)
+    let val4=parseInt(document.getElementById("second_val").value)
+    if(document.getElementById("plus").checked)
+        document.getElementById("result2").innerHTML=val3+val4
+    else if(document.getElementById("minus").checked)
+        document.getElementById("result2").innerHTML=val3-val4
+    else if(document.getElementById("times").checked)
+        document.getElementById("result2").innerHTML=val3*val4
+    else if(document.getElementById("divide").checked)
+        document.getElementById("result2").innerHTML=val3/val4
+
+}
 </script>
+
 </body>
 </html> 
